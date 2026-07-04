@@ -8,7 +8,7 @@ class CameraService:
     """
     Service de lecture caméra.
 
-    Ce service reçoit un objet camera_capture compatible avec OpenCV.
+    Ce service reçoit un objet compatible avec OpenCV.
     Exemple réel :
     cv2.VideoCapture(0)
     """
@@ -17,6 +17,12 @@ class CameraService:
         self.camera_capture = camera_capture
 
     def read_frame(self):
+        """
+        Lit une image depuis la caméra.
+
+        Retourne l'image si la lecture fonctionne.
+        Lève une erreur si la caméra ne répond pas.
+        """
         success, frame = self.camera_capture.read()
 
         if not success or frame is None:
@@ -25,4 +31,7 @@ class CameraService:
         return frame
 
     def release(self) -> None:
+        """
+        Libère la caméra.
+        """
         self.camera_capture.release()
