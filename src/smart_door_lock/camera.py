@@ -19,9 +19,6 @@ class CameraService:
     def read_frame(self):
         """
         Lit une image depuis la caméra.
-
-        Retourne l'image si la lecture fonctionne.
-        Lève une erreur si la caméra ne répond pas.
         """
         success, frame = self.camera_capture.read()
 
