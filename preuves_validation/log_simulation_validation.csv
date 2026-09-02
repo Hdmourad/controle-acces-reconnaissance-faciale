@@ -1,0 +1,5 @@
+date_heure;scenario;camera;personne;distance;seuil;vivacite;decision;gpio17;tension_gpio;mosfet;serrure;diode;alimentation_serrure;detail
+2026-09-02T17:41:58;visage_reconnu;OK;Utilisateur_001;0.42;0.55;True;ACCES_AUTORISE;HIGH;3.3;ON;OUVERTE;PROTECTION_PRESENTE;12V_SEPAREE;Visage reconnu + vivacite validee
+2026-09-02T17:41:58;visage_inconnu;OK;INCONNU;0.79;0.55;True;ACCES_REFUSE;LOW;0.0;OFF;FERMEE;PROTECTION_PRESENTE;12V_SEPAREE;Visage inconnu : ouverture interdite
+2026-09-02T17:41:58;photo_sans_vivacite;OK;Utilisateur_001;0.43;0.55;False;ACCES_REFUSE;LOW;0.0;OFF;FERMEE;PROTECTION_PRESENTE;12V_SEPAREE;Vivacite refusee : suspicion photo
+2026-09-02T17:41:58;camera_erreur;CAMERA_ERROR;NON_IDENTIFIE;;0.55;False;ACCES_REFUSE;LOW;0.0;OFF;FERMEE;PROTECTION_PRESENTE;12V_SEPAREE;Erreur camera : ouverture interdite

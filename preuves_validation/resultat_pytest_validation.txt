@@ -1,0 +1,54 @@
+============================= test session starts =============================
+platform win32 -- Python 3.11.9, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\moura\Desktop\controle-acces-reconnaissance-faciale\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\moura\Desktop\controle-acces-reconnaissance-faciale
+configfile: pytest.ini
+testpaths: tests
+collecting ... collected 43 items
+
+tests/test_access_control.py::test_access_authorized_when_distance_is_low PASSED [  2%]
+tests/test_access_control.py::test_access_refused_when_distance_is_high PASSED [  4%]
+tests/test_access_control.py::test_access_refused_when_distance_equal_threshold PASSED [  6%]
+tests/test_access_service.py::test_handle_access_request_authorizes_known_user PASSED [  9%]
+tests/test_access_service.py::test_handle_access_request_refuses_unknown_user PASSED [ 11%]
+tests/test_access_service.py::test_handle_access_request_refuses_high_distance PASSED [ 13%]
+tests/test_camera.py::test_read_frame_returns_frame_when_camera_successful PASSED [ 16%]
+tests/test_camera.py::test_read_frame_raises_error_when_camera_fails PASSED [ 18%]
+tests/test_camera.py::test_release_releases_camera_capture PASSED        [ 20%]
+tests/test_config.py::test_face_distance_threshold_is_valid PASSED       [ 23%]
+tests/test_config.py::test_gpio_lock_pin_is_gpio17 PASSED                [ 25%]
+tests/test_config.py::test_lock_open_duration_is_positive PASSED         [ 27%]
+tests/test_config.py::test_known_faces_directory_is_configured PASSED    [ 30%]
+tests/test_config.py::test_allowed_image_extensions_are_defined PASSED   [ 32%]
+tests/test_database.py::test_log_access_creates_csv_file PASSED          [ 34%]
+tests/test_database.py::test_log_access_appends_refused_access PASSED    [ 37%]
+tests/test_face_encoding.py::test_load_image_with_backend_calls_loader PASSED [ 39%]
+tests/test_face_encoding.py::test_encode_face_with_backend_returns_first_encoding PASSED [ 41%]
+tests/test_face_encoding.py::test_encode_face_with_backend_returns_none_when_no_face_detected PASSED [ 44%]
+tests/test_face_encoding.py::test_build_known_face_encoding_loads_and_encodes_image PASSED [ 46%]
+tests/test_face_recognition_adapter.py::test_load_image_uses_backend PASSED [ 48%]
+tests/test_face_recognition_adapter.py::test_extract_face_encodings_uses_backend PASSED [ 51%]
+tests/test_face_recognition_adapter.py::test_compute_face_distances_uses_backend PASSED [ 53%]
+tests/test_face_repository.py::test_is_supported_image_file_accepts_valid_extensions PASSED [ 55%]
+tests/test_face_repository.py::test_is_supported_image_file_refuses_invalid_extensions PASSED [ 58%]
+tests/test_face_repository.py::test_extract_person_name_from_file PASSED [ 60%]
+tests/test_face_repository.py::test_list_known_face_files_returns_only_images PASSED [ 62%]
+tests/test_face_repository.py::test_load_known_face_names PASSED         [ 65%]
+tests/test_face_repository.py::test_list_known_face_files_returns_empty_list_when_directory_missing PASSED [ 67%]
+tests/test_lock_control.py::test_open_lock_activates_then_deactivates_gpio PASSED [ 69%]
+tests/test_main.py::test_run_demo_access_authorizes_demo_user PASSED     [ 72%]
+tests/test_opencv_camera.py::test_create_opencv_camera_capture_uses_default_camera_index PASSED [ 74%]
+tests/test_opencv_camera.py::test_create_opencv_camera_capture_uses_custom_camera_index PASSED [ 76%]
+tests/test_raspberry_gpio_lock.py::test_create_raspberry_pi_lock_controller_uses_default_gpio_pin PASSED [ 79%]
+tests/test_raspberry_gpio_lock.py::test_raspberry_pi_lock_controller_can_open_lock PASSED [ 81%]
+tests/test_recognition.py::test_get_best_match_index_returns_lowest_distance_index PASSED [ 83%]
+tests/test_recognition.py::test_get_best_match_index_returns_none_when_empty PASSED [ 86%]
+tests/test_recognition.py::test_identify_face_returns_known_user_when_distance_is_low PASSED [ 88%]
+tests/test_recognition.py::test_identify_face_refuses_when_distance_is_high PASSED [ 90%]
+tests/test_recognition.py::test_identify_face_returns_no_match_when_lists_are_empty PASSED [ 93%]
+tests/test_workflow.py::test_process_face_access_authorizes_best_match PASSED [ 95%]
+tests/test_workflow.py::test_process_face_access_refuses_unknown_face PASSED [ 97%]
+tests/test_workflow.py::test_process_face_access_refuses_when_no_known_faces PASSED [100%]
+
+============================= 43 passed in 0.19s ==============================
+

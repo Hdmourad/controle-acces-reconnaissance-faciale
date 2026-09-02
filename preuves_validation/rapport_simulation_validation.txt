@@ -1,0 +1,82 @@
+RAPPORT DE SIMULATION VALIDATION FINALE - SMART DOOR LOCK
+============================================================
+
+Objectif : valider en simulation le comportement logiciel, systeme et electronique.
+
+Architecture simulee :
+- Camera virtuelle
+- Reconnaissance faciale simulee
+- Decision d'acces
+- GPIO17 virtuel
+- MOSFET IRLZ44N virtuel
+- Serrure solenoide 12V virtuelle
+- Diode de roue libre
+- Logs anonymises
+
+Resultat pytest : PASS
+
+------------------------------------------------------------
+Scenario : visage_reconnu
+Camera : OK
+Personne : Utilisateur_001
+Distance : 0.42
+Seuil : 0.55
+Vivacite : True
+Decision : ACCES_AUTORISE
+GPIO17 : HIGH
+Tension GPIO : 3.3 V
+MOSFET : ON
+Serrure : OUVERTE
+Diode : PROTECTION_PRESENTE
+Alimentation serrure : 12V_SEPAREE
+Detail : Visage reconnu + vivacite validee
+------------------------------------------------------------
+Scenario : visage_inconnu
+Camera : OK
+Personne : INCONNU
+Distance : 0.79
+Seuil : 0.55
+Vivacite : True
+Decision : ACCES_REFUSE
+GPIO17 : LOW
+Tension GPIO : 0.0 V
+MOSFET : OFF
+Serrure : FERMEE
+Diode : PROTECTION_PRESENTE
+Alimentation serrure : 12V_SEPAREE
+Detail : Visage inconnu : ouverture interdite
+------------------------------------------------------------
+Scenario : photo_sans_vivacite
+Camera : OK
+Personne : Utilisateur_001
+Distance : 0.43
+Seuil : 0.55
+Vivacite : False
+Decision : ACCES_REFUSE
+GPIO17 : LOW
+Tension GPIO : 0.0 V
+MOSFET : OFF
+Serrure : FERMEE
+Diode : PROTECTION_PRESENTE
+Alimentation serrure : 12V_SEPAREE
+Detail : Vivacite refusee : suspicion photo
+------------------------------------------------------------
+Scenario : camera_erreur
+Camera : CAMERA_ERROR
+Personne : NON_IDENTIFIE
+Distance : None
+Seuil : 0.55
+Vivacite : False
+Decision : ACCES_REFUSE
+GPIO17 : LOW
+Tension GPIO : 0.0 V
+MOSFET : OFF
+Serrure : FERMEE
+Diode : PROTECTION_PRESENTE
+Alimentation serrure : 12V_SEPAREE
+Detail : Erreur camera : ouverture interdite
+
+============================================================
+RESULTAT GLOBAL : PASS
+Conclusion : la simulation valide la logique avant integration reelle.
+Limite : cette simulation ne remplace pas le test physique final de la serrure 12V.
